@@ -10,6 +10,17 @@ import pickle
 with open("data/hungarian.data", encoding='Latin1') as file:
   lines = [line.strip() for line in file]
 
+custom_css = """
+body {
+    background-color: #FFC0CB; /* Pink background color */
+    background-image: url('https://w0.peakpx.com/wallpaper/24/342/HD-wallpaper-video-game-arknights-skadi-arknights-specter-arknights.jpg'); /* Add your image URL here */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+st.markdown(f"<style>{custom_css}</style>", unsafe_allow_html=True)
+
 data = itertools.takewhile(
   lambda x: len(x) == 76,
   (' '.join(lines[i:(i + 10)]).split() for i in range(0, len(lines), 10))
