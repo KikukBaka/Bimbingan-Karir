@@ -10,6 +10,20 @@ import pickle
 with open("data/hungarian.data", encoding='Latin1') as file:
   lines = [line.strip() for line in file]
 
+custom_css = """
+<style>
+    .StApp {
+        background-image: url("https://initiate.alphacoders.com/images/122/cropped-1920-1080-1228767.jpg?1155"); 
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+</style>
+"""
+
+st.markdown(custom_css, unsafe_allow_html=True)
+
+
 data = itertools.takewhile(
   lambda x: len(x) == 76,
   (' '.join(lines[i:(i + 10)]).split() for i in range(0, len(lines), 10))
